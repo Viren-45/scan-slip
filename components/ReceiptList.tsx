@@ -6,6 +6,7 @@ import { useQuery } from "convex/react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
 import { useRouter } from "next/navigation";
 import { ChevronRight, FileText } from "lucide-react";
+import { Doc } from "@/convex/_generated/dataModel";
 
 function ReceiptList() {
     const { user } = useUser();
