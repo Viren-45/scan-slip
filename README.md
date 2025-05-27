@@ -1,51 +1,114 @@
-# Welcome to your Convex + Next.js + Clerk app
+# ScanSlip - Intelligent Receipt Scanning & Analysis
 
-This is a [Convex](https://convex.dev/) project created with [`npm create convex`](https://www.npmjs.com/package/create-convex).
+ScanSlip is a modern web application that allows users to scan, analyze, and organize their receipts with AI-powered precision. It extracts key information from receipt PDFs, categorizes expenses, and provides valuable insights into spending patterns.
 
-After the initial setup (<2 minutes) you'll have a working full-stack app using:
+![ScanSlip](https://scan-slip.vercel.app/opengraph-image.png)
 
-- Convex as your backend (database, server logic)
-- [React](https://react.dev/) as your frontend (web page interactivity)
-- [Next.js](https://nextjs.org/) for optimized web hosting and page routing
-- [Tailwind](https://tailwindcss.com/) for building great looking accessible UI
-- [Clerk](https://clerk.com/) for authentication
+## Features
 
-## Get started
+- **PDF Receipt Scanning**: Upload PDF receipts via drag-and-drop or file selection
+- **AI-Powered Data Extraction**: Automatically extract merchant details, transaction amounts, dates, and line items
+- **Receipt Organization**: View, sort, and manage all your uploaded receipts in one place
+- **Detailed Receipt Analysis**: See comprehensive breakdowns of each receipt with extracted data
+- **Usage Tiers**: Free, Starter, and Pro plans with different scan limits and feature sets
+- **Secure Authentication**: User authentication and authorization with Clerk
+- **Responsive Design**: Beautiful, modern UI that works on desktop and mobile devices
 
-If you just cloned this codebase and didn't use `npm create convex`, run:
+## Tech Stack
 
-```
-npm install
-npm run dev
-```
+ScanSlip is built with a modern tech stack:
 
-If you're reading this README on GitHub and want to use this template, run:
+- **Frontend**: [Next.js 15](https://nextjs.org/) with [React 19](https://react.dev/)
+- **Backend**: [Convex](https://convex.dev/) for database and server functions
+- **Authentication**: [Clerk](https://clerk.com/) for user management
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) for responsive design
+- **UI Components**: Custom components with [Radix UI](https://www.radix-ui.com/)
+- **File Storage**: Convex Storage for receipt files
+- **Background Processing**: [Inngest](https://www.inngest.com/) for receipt processing
+- **Feature Flags**: [Schematic](https://www.schematichq.com/) for entitlements and feature management
+- **Payments**: [Stripe](https://stripe.com/) for subscription management
 
-```
-npm create convex@latest -- -t nextjs-clerk
-```
+## Getting Started
 
-Then:
+### Prerequisites
 
-1. Open your app. There should be a "Claim your application" button from Clerk in the bottom right of your app.
-2. Follow the steps to claim your application and link it to this app.
-3. Follow step 3 in the [Convex Clerk onboarding guide](https://docs.convex.dev/auth/clerk#get-started) to create a Convex JWT template.
-4. Uncomment the Clerk provider in `convex/auth.config.ts`
-5. Paste the Issuer URL as `CLERK_JWT_ISSUER_DOMAIN` to your dev deployment environment variable settings on the Convex dashboard (see [docs](https://docs.convex.dev/auth/clerk#configuring-dev-and-prod-instances))
+- Node.js 18+ and npm
+- Convex account
+- Clerk account
+- (Optional) Schematic account for feature flags
+- (Optional) Inngest account for background processing
+- (Optional) Stripe account for payments
 
-If you want to sync Clerk user data via webhooks, check out this [example repo](https://github.com/thomasballinger/convex-clerk-users-table/).
+### Installation
 
-## Learn more
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/scan-slip.git
+   cd scan-slip
+   ```
 
-To learn more about developing your project with Convex, check out:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-- The [Tour of Convex](https://docs.convex.dev/get-started) for a thorough introduction to Convex principles.
-- The rest of [Convex docs](https://docs.convex.dev/) to learn about all Convex features.
-- [Stack](https://stack.convex.dev/) for in-depth articles on advanced topics.
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory with the following variables:
+   ```
+   # Clerk Authentication
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+   CLERK_SECRET_KEY=your_clerk_secret_key
+   
+   # Convex
+   NEXT_PUBLIC_CONVEX_URL=your_convex_deployment_url
+   
+   # Optional: Schematic for feature flags
+   NEXT_PUBLIC_SCHEMATIC_PUBLIC_KEY=your_schematic_public_key
+   SCHEMATIC_API_KEY=your_schematic_api_key
+   
+   # Optional: Stripe for payments
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   ```
 
-## Join the community
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-Join thousands of developers building full-stack apps with Convex:
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-- Join the [Convex Discord community](https://convex.dev/community) to get help in real-time.
-- Follow [Convex on GitHub](https://github.com/get-convex/), star and contribute to the open-source implementation of Convex.
+### Convex Setup
+
+1. Initialize Convex:
+   ```bash
+   npx convex dev
+   ```
+
+2. Follow the Convex setup instructions to connect your project.
+
+3. Configure Clerk with Convex by following the [Convex Clerk integration guide](https://docs.convex.dev/auth/clerk).
+
+## Deployment
+
+ScanSlip can be deployed to Vercel:
+
+1. Push your code to a GitHub repository.
+2. Connect the repository to Vercel.
+3. Configure the environment variables in Vercel.
+4. Deploy!
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with [Convex](https://convex.dev/) and [Next.js](https://nextjs.org/)
+- Authentication by [Clerk](https://clerk.com/)
+- UI components from [Radix UI](https://www.radix-ui.com/)
+- Icons from [Lucide](https://lucide.dev/)
